@@ -1,0 +1,6 @@
+.row {
+    color: blue;
+}
+.column {
+    display: inline-block;
+}

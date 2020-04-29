@@ -10,6 +10,32 @@
 
 </body>
 <script>
+    const container = document.querySelector('#container')
+
+    function makeGrid() {
+        makeRow(16)
+        makeColumns(16)
+    }
+    function makeRow(r) {
+        for (i = 1; i <= r; i++) {
+            const row = document.createElement('div')
+            row.classList.add('row');
+            row.textContent = `${i}`;
+            container.appendChild(row);
+        }
+    }
+    function makeColumns(c) {
+        for (i = 1; i <= c; i++) {
+            for (j = 1; j <= c - 1; j++) {
+            const column = document.createElement('div')
+            column.classList.add('column');
+            column.textContent = `${i}`;
+            container.appendChild(column);
+        }
+            }
+           
     
+    }
+    makeGrid();
 </script>
 </html>
