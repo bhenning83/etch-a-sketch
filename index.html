@@ -15,8 +15,12 @@
 <script>
     const container = document.querySelector('#container')
     const button = document.querySelector('button')
+    const gridCells = prompt('How many squares per side?', '')
+    container.style.gridTemplateColumns = `repeat(${gridCells}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${gridCells}, 1fr)`;
+    container.style.cursor = 'crosshair';
     function makeGrid() {
-        for (i = 1; i <= 16 * 16; i++) {
+        for (i = 1; i <= (gridCells * gridCells) ; i++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
             container.appendChild(cell);
@@ -30,7 +34,5 @@
         }
     }
 makeGrid()
-
-
 </script>
 </html>

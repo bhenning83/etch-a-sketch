@@ -1,22 +1,14 @@
-:root {
-    --grid-cells: 16;
-}
 #container {
     position: relative;
     margin: auto;
     margin-bottom: 25px;
     display: grid;
-    grid-template-columns: repeat(var(--grid-cells), 1fr);
-    grid-template-rows: repeat(var(--grid-cells), 1fr);
-    grid-gap: 1px;
-    background-color: aqua;
-    width: 495px;
+    width: 550px;
+    height: 550px;
 }
 .cell {
     position: relative;
     background-color: blueviolet;
-    height: 30px;
-    width: 30px;
 }
 #button-container {
     display: flex;
