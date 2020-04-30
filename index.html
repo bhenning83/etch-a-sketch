@@ -19,14 +19,14 @@
     const container = document.querySelector('#container')
     const traditional = document.querySelector('#traditional')
     const button = document.querySelector('#button')
-    const gridCells = prompt('How many squares per side?', '16');
+    let gridCells = prompt('How many squares per side?', '16');
     const rainbow = document.querySelector('#rainbow-effect') 
     const fullRainbow = document.querySelector('#full-rainbow')
+    const resize = document.querySelector('#resize')
     let cell;
     container.style.gridTemplateColumns = `repeat(${gridCells}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${gridCells}, 1fr)`;
     container.style.cursor = 'crosshair';
-    
     function makeGrid() {
         for (i = 1; i <= (gridCells * gridCells) ; i++) {
             let cell = document.createElement('div');
@@ -37,6 +37,9 @@
             });
             traditional.addEventListener('click', (e) => {
                 cell.style.backgroundColor = 'rgb(250, 250, 250)'
+                cell.addEventListener('mouseover', (e) => {
+                    e.target.style.backgroundColor = 'rgb(40, 40, 40)';
+                });
             })
             button.addEventListener('click', (e) => {
             cell.style.backgroundColor = '#30f387'
