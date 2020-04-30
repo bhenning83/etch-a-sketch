@@ -9,6 +9,7 @@
     <h1>Etch-a-Sketch</h1>
     <div id='container'></div>
     <div id='button-container'>
+        <button id='traditional'>Traditional</button>
         <button id='button'>Barney Mode</button>
         <button id='rainbow-effect'>Draw a Rainbow</button>
         <button id='full-rainbow'>Don't Press This One</button>
@@ -16,7 +17,8 @@
 </body>
 <script>
     const container = document.querySelector('#container')
-    const button = document.querySelector('button')
+    const traditional = document.querySelector('#traditional')
+    const button = document.querySelector('#button')
     const gridCells = prompt('How many squares per side?', '16');
     const rainbow = document.querySelector('#rainbow-effect') 
     const fullRainbow = document.querySelector('#full-rainbow')
@@ -24,14 +26,18 @@
     container.style.gridTemplateColumns = `repeat(${gridCells}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${gridCells}, 1fr)`;
     container.style.cursor = 'crosshair';
+    
     function makeGrid() {
         for (i = 1; i <= (gridCells * gridCells) ; i++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
             container.appendChild(cell);
             cell.addEventListener('mouseover', (e) => {
-                e.target.style.backgroundColor = 'blueviolet';
+                e.target.style.backgroundColor = 'rgb(40, 40, 40)';
             });
+            traditional.addEventListener('click', (e) => {
+                cell.style.backgroundColor = 'rgb(250, 250, 250)'
+            })
             button.addEventListener('click', (e) => {
             cell.style.backgroundColor = '#30f387'
             cell.addEventListener('mouseover', (e) => {
@@ -47,7 +53,7 @@
             fullRainbow.addEventListener('click', (e) => {
                 cell.style.backgroundColor = ('#'+Math.floor(Math.random()*16777215).toString(16))
                 cell.addEventListener('mouseover', (e) => {
-                    cell.style.backgroundColor = 'white'
+                    cell.style.backgroundColor = ('#'+Math.floor(Math.random()*16777215).toString(16))
                 })
             });
         }
