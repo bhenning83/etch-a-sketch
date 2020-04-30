@@ -1,6 +1,17 @@
-.row {
-    color: blue;
-}
 .column {
     display: inline-block;
 }
+#container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    grid-gap: 1px;
+    background-color: aqua;
+    
+}
+.cell {
+    background-color: blueviolet;
+    height: 30px;
+    width: 30px;
+}
+   
